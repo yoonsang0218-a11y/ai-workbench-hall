@@ -129,7 +129,8 @@ function paintOverlay(slots, pos) {
     if (!p) return;
     const tag = ensureNode(id, 'tag');
     const name = a.name || id;
-    tag.textContent = `${a.jamo || 'ㅇ'} ${name}`;
+    tag.textContent = name;
+    tag.title = `${a.jamo || 'ㅇ'} ${name} · ${ROOM_NAME[a.room] || '오피스'}${a.status ? ' · ' + a.status : ''}`;
     tag.classList.toggle('is-me', id === state.me);
     tag.style.left = (p.x / W) * 100 + '%';
     tag.style.top = ((p.y + 1) / H) * 100 + '%';
