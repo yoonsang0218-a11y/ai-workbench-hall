@@ -90,10 +90,11 @@ function paintConnection(store) {
 async function ensureSeed() {
   if (state.seeded) return;
   state.seeded = true;
-  const current = state.agents || {};
-  if (Object.keys(current).length > 0) return;
+  // 첫 스냅샷이 캐시로 비어 보일 수 있어 잠깐 기다린 뒤, 그래도 없을 때만 시드합니다.
+  await new Promise(r => setTimeout(r, 1200));
+  if (Object.keys(state.agents || {}).length > 0) return;
   try {
-    await state.store.upsertAgent(SEED.id, { ...SEED.data, ts: Date.now() });
+    await state.store.seedAgent(SEED.id, { ...SEED.data });
   } catch (e) {
     console.warn('[PJO] 시드 실패', e);
   }

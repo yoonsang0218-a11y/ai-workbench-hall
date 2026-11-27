@@ -60,6 +60,11 @@ function cloudStore(db, m, cfg) {
       } catch (_) { return {}; }
     },
 
+    // 이미 있는 캐릭터는 절대 덮어쓰지 않고, 없을 때만 만듭니다(트랜잭션).
+    seedAgent(id, data) {
+      return m.runTransaction(ref(db, `agents/${id}`), cur => (cur === null ? { ...data, ts: Date.now() } : undefined));
+    },
+
     upsertAgent(id, data) { return set(ref(db, `agents/${id}`), data); },
     patchAgent(id, patch) { return update(ref(db, `agents/${id}`), patch); },
     deleteAgent(id) { return remove(ref(db, `agents/${id}`)); },
@@ -124,6 +129,10 @@ function localStore() {
     watchTasks: watch('tasks'),
 
     async readAgents() { return { ...data.agents }; },
+
+    seedAgent(id, value) {
+      if (!data.agents[id]) { data.agents[id] = { ...value, ts: Date.now() }; persist(); emit('agents'); }
+    },
 
     upsertAgent(id, value) { data.agents[id] = value; persist(); emit('agents'); },
     patchAgent(id, patch) { data.agents[id] = { ...(data.agents[id] || {}), ...patch }; persist(); emit('agents'); },
