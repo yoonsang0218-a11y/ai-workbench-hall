@@ -268,14 +268,14 @@ function drawChar(ctx, jamo, color, feetX, feetY, t, seed, isMe) {
 
   drawGlyph(ctx, mask, x, y, s, color);
 
-  // 눈
-  const eyeY = y + 3 * s;
+  // 눈 (작게: 2x2)
+  const eyeY = y + 3 * s + 1;
   [2, 4].forEach(col => {
     const ex = x + col * s;
     ctx.fillStyle = '#ffffff';
-    ctx.fillRect(ex, eyeY, s, s);
+    ctx.fillRect(ex, eyeY, 2, 2);
     ctx.fillStyle = '#14161f';
-    ctx.fillRect(ex + (col === 4 ? 0 : s - 1), eyeY + s - 1, 1, 1);
+    ctx.fillRect(ex + (col === 4 ? 0 : 1), eyeY + 1, 1, 1);
   });
 
   // 내 캐릭터 표시 (발밑 노란 점)

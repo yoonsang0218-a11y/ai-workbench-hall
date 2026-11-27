@@ -130,7 +130,7 @@ function paintOverlay(slots, pos) {
     tag.textContent = `${a.jamo || 'ㅇ'} ${name}`;
     tag.classList.toggle('is-me', id === state.me);
     tag.style.left = (p.x / W) * 100 + '%';
-    tag.style.top = ((p.y - 15) / H) * 100 + '%';
+    tag.style.top = ((p.y - 26) / H) * 100 + '%';
 
     const bubble = ensureNode(id, 'bubble');
     const fresh = a.bubble && a.bubbleAt && now - a.bubbleAt < 15000;
@@ -139,7 +139,7 @@ function paintOverlay(slots, pos) {
       bubble.textContent = a.bubble;
       bubble.classList.toggle('is-fade', now - a.bubbleAt > 10000);
       bubble.style.left = (p.x / W) * 100 + '%';
-      bubble.style.top = ((p.y - 26) / H) * 100 + '%';
+      bubble.style.top = ((p.y - 36) / H) * 100 + '%';
     } else {
       bubble.hidden = true;
     }
