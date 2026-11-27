@@ -366,6 +366,8 @@ function renderGuide() {
   if (c1) c1.textContent = curl;
   const c2 = $('#invite-text');
   if (c2) c2.textContent = invite;
+  const c3 = $('#guide-page');
+  if (c3) c3.textContent = page;
 }
 
 /* ── UI 연결 ─────────────────────────────────────── */

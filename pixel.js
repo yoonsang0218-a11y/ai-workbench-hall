@@ -41,8 +41,8 @@ export const ROOMS = {
 /* 방별 자리 (캐릭터 발 위치) */
 const SLOTS = {
   office: [
-    [28, 86], [64, 86], [100, 86], [136, 86],
-    [28, 138], [64, 138], [100, 138], [136, 138]
+    [28, 88], [64, 88], [100, 88], [136, 88],
+    [28, 142], [64, 142], [100, 142], [136, 142]
   ],
   meeting: [
     [220, 50], [238, 50], [256, 50],
@@ -50,7 +50,7 @@ const SLOTS = {
     [198, 68], [278, 68]
   ],
   work: [
-    [182, 152], [212, 152], [242, 152], [272, 152], [300, 164]
+    [182, 156], [212, 156], [242, 156], [272, 156], [300, 166]
   ]
 };
 
@@ -256,11 +256,11 @@ function drawGlyph(ctx, mask, x, y, s, color) {
 
 function drawChar(ctx, jamo, color, feetX, feetY, t, seed, isMe) {
   const mask = JAMO[jamo] || JAMO['ㅇ'];
-  const s = 2;
+  const s = 3;
   const w = 7 * s;
-  const bob = Math.round(Math.sin(t / 380 + seed) * 0.6);
+  const bob = Math.round(Math.sin(t / 380 + seed) * 0.7);
   const x = Math.round(feetX - w / 2);
-  const y = Math.round(feetY - 14 + bob);
+  const y = Math.round(feetY - w + 1 + bob);
 
   // 그림자
   ctx.fillStyle = 'rgba(0,0,0,0.32)';
