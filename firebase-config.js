@@ -1,19 +1,16 @@
 /*
- * Firebase 웹앱 설정
- * ─────────────────────────────────────────────────────────────
- * Firebase 콘솔 > 프로젝트 설정 > 내 앱 > SDK 설정 및 구성 에서
- * "구성"을 골라 아래 값을 그대로 채우면 실시간 연결이 켜집니다.
+ * Firebase 웹앱 설정 — 합동 비서실
+ * 프로젝트: pickle-joint-office (Spark 무료 요금제) · Realtime Database: 싱가포르(asia-southeast1)
  *
- * 값이 비어 있으면 페이지는 "로컬 모드"(이 브라우저에만 저장)로 동작합니다.
- * 아래 apiKey 등은 클라이언트 공개용 식별자이며, 보안은 Realtime Database
- * 규칙으로 관리합니다. 개인정보(이메일·전화번호·주소·비밀번호)는 절대 넣지 마세요.
+ * 아래 값은 클라이언트에 공개되는 식별자입니다. 실제 접근 제어는 Realtime Database
+ * 규칙(현재: 읽기/쓰기 공개)으로 합니다. 개인정보는 넣지 마세요.
  */
 window.PJO_FIREBASE = {
-  apiKey: "",
-  authDomain: "",
-  databaseURL: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: "AIzaSyAhDR9orWMWNkaNYsQJ82MWAaGF36AcPiE",
+  authDomain: "pickle-joint-office-1e2d2.firebaseapp.com",
+  databaseURL: "https://pickle-joint-office-1e2d2-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "pickle-joint-office-1e2d2",
+  storageBucket: "pickle-joint-office-1e2d2.firebasestorage.app",
+  messagingSenderId: "228835693851",
+  appId: "1:228835693851:web:c62b3461436d9fbe34afbe"
 };
