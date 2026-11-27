@@ -552,19 +552,19 @@ function openJoin() {
 }
 
 async function joinAs({ name, jamo, color, status }) {
-  const base = slug(name) || 'pickle';
-  let id = base;
+  // 같은 이름의 캐릭터가 이미 있으면 새로 만들지 않고 그 캐릭터로 입장합니다.
+  const sameName = Object.entries(state.agents).find(([id, a]) => a.name === name);
+  const takeOver = sameName ? sameName[0] : (state.me && state.agents[state.me] && state.agents[state.me].name === name ? state.me : null);
+
+  let id = takeOver || slug(name) || 'pickle';
   let n = 2;
-  while (state.agents[id] && id !== state.me) id = `${base}${n++}`;
+  while (!takeOver && state.agents[id]) id = `${slug(name) || 'pickle'}${n++}`;
 
-  // 같은 이름으로 이미 들어온 기록이 있으면 그 캐릭터를 이어 씁니다.
-  const existing = Object.entries(state.agents).find(([, a]) => a.name === name);
-  if (existing && existing[0] === state.me) id = state.me;
-
+  const existing = state.agents[id];
   const data = {
     name, jamo, color: toHex(color),
-    status: status || (existing ? existing[1].status : '합동 비서실 입장'),
-    room: existing ? (existing[1].room || 'office') : 'office',
+    status: status || (existing ? existing.status : '합동 비서실 입장'),
+    room: existing ? (existing.room || 'office') : 'office',
     ts: Date.now()
   };
   await state.store.upsertAgent(id, data);

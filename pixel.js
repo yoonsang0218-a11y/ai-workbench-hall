@@ -34,8 +34,8 @@ export const JAMO_KEYS = Object.keys(JAMO);
 
 export const ROOMS = {
   office:  { label: '오피스', tag: [30, 25] },
-  meeting: { label: '회의실', tag: [186, 25] },
-  work:    { label: '작업실', tag: [186, 111] }
+  meeting: { label: '회의실', tag: [188, 25] },
+  work:    { label: '작업실', tag: [204, 110] }
 };
 
 /* 방별 자리 (캐릭터 발 위치) */
@@ -179,21 +179,21 @@ function drawMeetingRoom(ctx) {
 
 function drawWorkRoom(ctx) {
   // 화이트보드 + 스티키
-  px(ctx, 168, 112, 40, 24, C.frame);
-  px(ctx, 170, 114, 36, 20, C.white);
-  px(ctx, 174, 117, 8, 6, '#ffd340');
-  px(ctx, 185, 117, 8, 6, '#ff8ab5');
-  px(ctx, 196, 117, 8, 6, '#7ee0c0');
-  px(ctx, 174, 126, 12, 1, '#8fa2c4');
-  px(ctx, 174, 129, 18, 1, '#8fa2c4');
+  px(ctx, 168, 118, 40, 24, C.frame);
+  px(ctx, 170, 120, 36, 20, C.white);
+  px(ctx, 174, 123, 8, 6, '#ffd340');
+  px(ctx, 185, 123, 8, 6, '#ff8ab5');
+  px(ctx, 196, 123, 8, 6, '#7ee0c0');
+  px(ctx, 174, 132, 12, 1, '#8fa2c4');
+  px(ctx, 174, 135, 18, 1, '#8fa2c4');
   // 선반
-  px(ctx, 216, 112, 60, 4, C.shelf);
-  px(ctx, 216, 122, 60, 4, C.shelf);
-  px(ctx, 219, 106, 6, 6, '#82b4ff');
-  px(ctx, 228, 106, 4, 6, '#ff8ab5');
-  px(ctx, 236, 105, 7, 7, '#ffd340');
-  px(ctx, 250, 114, 10, 8, C.white);
-  px(ctx, 264, 114, 5, 8, '#7ee0c0');
+  px(ctx, 216, 118, 60, 4, C.shelf);
+  px(ctx, 216, 128, 60, 4, C.shelf);
+  px(ctx, 219, 112, 6, 6, '#82b4ff');
+  px(ctx, 228, 112, 4, 6, '#ff8ab5');
+  px(ctx, 236, 111, 7, 7, '#ffd340');
+  px(ctx, 250, 120, 10, 8, C.white);
+  px(ctx, 264, 120, 5, 8, '#7ee0c0');
   // 프린터
   px(ctx, 290, 132, 16, 10, C.printer);
   px(ctx, 292, 128, 12, 4, shade(C.printer, -.2));
@@ -214,13 +214,13 @@ function drawOfficeRoom(ctx) {
   // 러그
   px(ctx, 12, 94, 132, 3, C.rug);
   // 화분 · 커피머신
-  drawPlant(ctx, 140, 30);
+  drawPlant(ctx, 140, 34);
   drawPlant(ctx, 8, 150);
-  drawCoffee(ctx, 26, 30);
+  drawCoffee(ctx, 26, 34);
   // 정수기
-  px(ctx, 60, 30, 10, 16, '#d7e2f0');
-  px(ctx, 62, 33, 6, 7, '#8fd2f0');
-  px(ctx, 60, 46, 10, 2, C.wallDark);
+  px(ctx, 60, 34, 10, 16, '#d7e2f0');
+  px(ctx, 62, 37, 6, 7, '#8fd2f0');
+  px(ctx, 60, 50, 10, 2, C.wallDark);
   // 바닥 안내 (문)
   px(ctx, 152, 74, 6, 14, C.mat);
   px(ctx, 152, 108, 6, 14, C.mat);
