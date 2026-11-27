@@ -76,7 +76,9 @@ function paintConnection(store) {
   } else {
     badge.textContent = '◐ 로컬 모드';
     badge.className = 'badge badge-local';
+    badge.title = 'Firebase Realtime Database가 연결되지 않아 이 브라우저에만 저장됩니다.';
     $('#foot-mode').textContent = '로컬 모드 (이 브라우저에만 저장)';
+    setTimeout(() => toast('로컬 모드: 이 브라우저에만 저장됩니다 (Firebase 연결 전)'), 900);
   }
   const db = store.databaseURL || '(연결 전)';
   const el = $('#guide-db');
